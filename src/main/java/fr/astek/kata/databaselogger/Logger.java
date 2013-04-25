@@ -39,5 +39,27 @@ public class Logger {
 		
 		transaction.commit();			
 	}
+
+
+	public void debug(String string) {
+
+		if (isDebug()) {
+				
+			Transaction transaction = this.session.beginTransaction();
+			
+			LoggerTrace loggerTrace = new LoggerTrace();
+			loggerTrace.setMessage(string);
+			
+			this.session.persist(loggerTrace);
+			
+			transaction.commit();	
+		}
+	}
+
+
+	public void warn(String string) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

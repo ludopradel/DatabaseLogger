@@ -74,6 +74,7 @@ public class TestConfiguration {
 		properties.setProperty("hibernate.hbm2ddl.auto", "update");
 
 		configuration.addAnnotatedClass(LoggerConfig.class);
+		configuration.addAnnotatedClass(LoggerTrace.class);
 
 		configuration.addProperties(properties);
 
