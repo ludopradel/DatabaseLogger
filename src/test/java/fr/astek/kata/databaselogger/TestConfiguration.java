@@ -47,15 +47,11 @@ public class TestConfiguration {
 
 	private static void initDBUnitProperties() {
 		System.setProperty(
-				PropertiesBasedJdbcDatabaseTester.DBUNIT_DRIVER_CLASS,
-				DRIVER_CLASS_PROPERTY);
+				PropertiesBasedJdbcDatabaseTester.DBUNIT_DRIVER_CLASS, DRIVER_CLASS_PROPERTY);
 		System.setProperty(
-				PropertiesBasedJdbcDatabaseTester.DBUNIT_CONNECTION_URL,
-				CONNECTION_URL_PROPERTY);
-		System.setProperty(PropertiesBasedJdbcDatabaseTester.DBUNIT_USERNAME,
-				USERNAME_PROPERTY);
-		System.setProperty(PropertiesBasedJdbcDatabaseTester.DBUNIT_PASSWORD,
-				PASSWORD_PROPERTY);
+				PropertiesBasedJdbcDatabaseTester.DBUNIT_CONNECTION_URL, CONNECTION_URL_PROPERTY);
+		System.setProperty(PropertiesBasedJdbcDatabaseTester.DBUNIT_USERNAME, USERNAME_PROPERTY);
+		System.setProperty(PropertiesBasedJdbcDatabaseTester.DBUNIT_PASSWORD, PASSWORD_PROPERTY);
 	}
 
 	private static void initHibernateSessionFactory() {
@@ -63,12 +59,9 @@ public class TestConfiguration {
 
 		Properties properties = new Properties();
 		properties.setProperty("hibernate.dialect", DIALECT_PROPERTY);
-		properties.setProperty("hibernate.connection.driver_class",
-				DRIVER_CLASS_PROPERTY);
-		properties.setProperty("hibernate.connection.url",
-				CONNECTION_URL_PROPERTY);
-		properties.setProperty("hibernate.connection.username",
-				USERNAME_PROPERTY);
+		properties.setProperty("hibernate.connection.driver_class", DRIVER_CLASS_PROPERTY);
+		properties.setProperty("hibernate.connection.url", CONNECTION_URL_PROPERTY);
+		properties.setProperty("hibernate.connection.username", USERNAME_PROPERTY);
 		properties.setProperty("hibernate.connection.password", PASSWORD_PROPERTY);
 		properties.setProperty("hibernate.show_sql", "true");
 		properties.setProperty("hibernate.hbm2ddl.auto", "update");
@@ -77,8 +70,7 @@ public class TestConfiguration {
 
 		configuration.addProperties(properties);
 
-		serviceRegistry = new ServiceRegistryBuilder().applySettings(
-				configuration.getProperties()).buildServiceRegistry();
+		serviceRegistry = new ServiceRegistryBuilder().applySettings(configuration.getProperties()).buildServiceRegistry();
 		sessionFactory = configuration.buildSessionFactory(serviceRegistry);
 	}
 }

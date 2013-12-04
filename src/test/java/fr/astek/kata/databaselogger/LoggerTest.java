@@ -40,13 +40,10 @@ public class LoggerTest extends DBTestCase {
 		Logger logger = new Logger(session);
 		logger.setLevel("WARNING");
 
-		// Fetch database data after executing your code
-
 		try {
 			IDataSet databaseDataSet = getConnection().createDataSet();
 			QueryDataSet queryDataSet = new QueryDataSet(super.getConnection());
-			queryDataSet.addTable("LOGGER_CONFIG",
-					"SELECT 1 as id, 'WARNING' as level FROM DUAL");
+			queryDataSet.addTable("LOGGER_CONFIG", "SELECT 1 as id, 'WARNING' as level FROM DUAL");
 
 			Assertion.assertEquals(queryDataSet, databaseDataSet);
 		
@@ -60,8 +57,7 @@ public class LoggerTest extends DBTestCase {
 	@Override
 	protected IDataSet getDataSet() throws Exception {
 		QueryDataSet queryDataSet = new QueryDataSet(super.getConnection());
-		queryDataSet.addTable("LOGGER_CONFIG",
-				"SELECT 1 as id, 'DEBUG' as level FROM DUAL");
+		queryDataSet.addTable("LOGGER_CONFIG", "SELECT 1 as id, 'DEBUG' as level FROM DUAL");
 		return queryDataSet;
 	}
 }
